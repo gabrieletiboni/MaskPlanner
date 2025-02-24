@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>MaskPlanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"  />
+    <link rel="stylesheet" type="text/css" href="assets/css/animatedBackground.css"  />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="citePopup">
+      <div id="citePopupContent">
+        <p>If you refer to MaskPlanner in your works or you use our Github repository, please consider citing:</p>
+          <div class="bibtexContainer">
+<!-- <pre>
+
+</pre> -->
+          </div>
+          <i id="closePopupIcon">&times;</i>
+      </div>
+    </div>
+
+    <header>
+      <div id="animContainer"></div>
+      <div id="headerBackground"></div>
+
+      <div id="elevatedContent">
+        <h1>MaskPlanner: Learning-Based Object-Centric<br/>Motion Generation from 3D Point Clouds</h1>
+        <h3 style="font-style: normal;">G. Tiboni, R. Camoriano, T. Tommasi<br/>
+        Under review</h3>
+
+        <div id="linksContainer">
+          <a href="#" target="_blank" class="iconLink">Paper <img src="assets/img/paper_icon2_64px.png"/></a>
+          <a href="https://github.com/gabrieletiboni/MaskPlanner" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
+          <!-- <a href="#contributionsSection">Contributions</a> -->
+          <!-- <a href="#findingsSection">Highlights</a> -->
+          <a class="linkLike openCitePopup">Cite</a>
+        </div>
+      </div>
+
+      <div id="videoContainer">
+        <div>
+          <div id="videoPlaceholder">
+            <span>
+              <img src="assets/img/play2.png" />
+              <br/>
+              Video coming soon
+            </span>
+          </div>
+          <!-- <video controls>
+            <source src="assets/video/.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video> -->
+        </div>
+      </div>
+    </header>
+
+    <section id="main">
+      <div id="intro">
+        <p>
+          <strong><em>Abstract</em></strong><br/>
+          Object-Centric Motion Generation (OCMG) plays a key role in a variety of industrial applications—such as robotic spray painting and welding—requiring efficient, scalable, and generalizable algorithms to plan multiple long-horizon trajectories over free-form 3D objects.
+          However, existing solutions rely on specialized heuristics, expensive optimization routines, or restrictive geometry assumptions that limit their adaptability to real-world scenarios.
+          In this work, we introduce a novel, fully data-driven framework that tackles OCMG directly from 3D point clouds, learning to generalize expert path patterns across free-form surfaces.
+          We propose MaskPlanner, a deep learning method that predicts local path segments for a given object while simultaneously inferring ``path masks" to group these segments into distinct trajectories. This design induces the network to capture both local geometric patterns and global task requirements in a single forward pass.
+          Extensive experimentation on a realistic robotic spray painting scenario shows that our approach attains near-complete coverage (above 99%) for unseen objects, while it remains task-agnostic and does not explicitly optimize for paint deposition.
+          Moreover, a real-world validation on a 6-DoF specialized painting robot demonstrates that the generated paths are directly executable and yield expert-level paint quality.
+          Our findings crucially highlight the potential of learning-based OCMG to reduce engineering overhead and seamlessly adapt to several industrial use cases.
+        </p>
+        <br/>
+        <p style="font-style: italic;">Authored by <a href="https://gabrieletiboni.com/" target="_blank" class="easyLink">Gabriele Tiboni</a>, <a href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it" target="_blank" class="easyLink">Raffaello Camoriano</a>, <a href="http://www.tatianatommasi.com/" target="_blank" class="easyLink">Tatiana Tommasi</a>.
+        </p>
+      </div>
+
+      <div id="introImg">
+        <span>
+          <img style="max-width: 100%; max-height: 860px;" src="assets/img/qualitative_results.png">
+        </span>
+        <span>
+          Main qualitative results: the raw network predictions are shown for a representative test sample of each object Category. Points displayed with the same color belong to the same path. Point orientations are not visible.
+        </span>
+      </div>
+
+      <!-- <div class="tab" id="contributionsSection">
+        <h2>Contributions</h2>
+        <ul class="easyUl">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </ul>
+        <p class="comingSoon">
+          Coming Soon
+        </p>
+      </div> -->
+
+      <!-- <div class="tab" id="findingsSection">
+          <h2>Highlights</h2>
+          <div class="main-list">
+            <span>
+              <span class="index">#1</span>
+              <span class="content">
+                <span class="title">
+                  A novel method for estimating dynamics parameters distributions from offline collected real-world data is presented.
+                </span>
+              </span>
+            </span>
+            <span>
+              <span class="index">#2</span>
+              <span class="content">
+                <span class="title">
+                  Robot policies trained with DROPO can efficiently transfer to the real world.
+                </span>
+              </span>
+              
+            </span>
+            <span>
+              <span class="index">#3</span>
+              <span class="content">
+                <span class="title">
+                  Human demonstrations can be used for safe and data-efficient simulator tuning.
+                </span>
+              </span>
+            </span>
+            <span>
+              <span class="index">#4</span>
+              <span class="content">
+                <span class="title">
+                  Probabilistic metrics are crucial for optimizing dynamics parameters distributions. 
+                </span>
+              </span>
+            </span>
+          </div> 
+      </div> -->
+
+      <!-- <div class="tab">
+          <h2>Conclusions</h2>
+          <p class="comingSoon">
+            Coming Soon
+          </p>
+      </div> -->
+
+      <div class="tab">
+          <h2>Citing</h2>
+          <p class="comingSoon">
+            Coming Soon
+          </p>
+         <!--  <div class="bibtexContainer">
+<pre>
+</pre>
+          </div> -->
+      </div>
+    </section>
+
+    <footer>
+      If you have any questions, please contact us at <a href="mailto:gabriele.tiboni@polito.it" class="easyLink">gabriele.tiboni@polito.it</a>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      const init_brad = 35;
+      $('#headerBackground').css("border-radius", init_brad+"%");
+      $('#animContainer').css("border-radius", init_brad+"%");
+
+      // check if viewport is mobile or desktop
+      const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+      const isTablet = window.matchMedia("only screen and (max-width: 1024px)").matches;
+      
+
+      function init() {
+        loadAnimatedBackground();
+
+        if (!isMobile && !isTablet) {
+          $('body').on('scroll', function() {
+            var scroll = $('body').scrollTop();
+            var viewportHeight = $(window).height();  // get viewport height
+
+            // max_brad = 35;
+            new_brad = init_brad - ((init_brad/viewportHeight) * scroll)
+            if (scroll <= viewportHeight) {
+              $("#headerBackground").css("border-radius", new_brad+"%");
+              $('#animContainer').css("border-radius", new_brad+"%");
+            }
+          });
+        }
+      }
+
+      //scroll to div
+      $('a[href^="#"]').on('click', function(event) {
+
+          var target = $( $(this).attr('href') );
+
+          if( target.length ) {
+              event.preventDefault();
+              $('html, body').animate({
+                  // scrollTop: target.offset().top - 30
+                  scrollTop: target.offset().top+$('body').scrollTop()-10
+              }, 600);
+          }
+
+      });
+
+      $(document).on('click', '.openCitePopup', function() {
+        $(document.getElementById("citePopup")).fadeIn(200);
+      });
+
+      $(document).on('click', '#citePopup', function() {
+        if (!$(event.target).closest(document.getElementById("citePopupContent")).length) {
+          $(document.getElementById("citePopup")).fadeOut(200);
+        }
+      });
+
+      $(document.getElementById("closePopupIcon")).on('click', function() {
+          $(document.getElementById("citePopup")).fadeOut(200);
+      });
+
+      function loadAnimatedBackground() {
+        $("#animContainer").load("assets/include/animatedBackground.html"); 
+      }
+
+      init();
+
+      
+    </script>
+  </body>
+</html>
