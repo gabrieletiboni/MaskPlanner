@@ -1,6 +1,8 @@
 :root {
 /*	--main-color: rgb(57, 73, 171);*/
-	--main-color: rgb(13, 71, 161);
+
+/*	--main-color: rgb(13, 71, 161);*/
+	--main-color: rgb(66, 89, 124);
 }
 
 html, body {
@@ -94,7 +96,9 @@ header {
 	   -moz-box-sizing: border-box;
 			box-sizing: border-box;
 	padding-top: 60px;
-	padding-bottom: 460px;
+/*	padding-bottom: 460px;*/
+
+	padding-bottom: 660px;
 
 }
 	#headerBackground {
@@ -109,7 +113,13 @@ header {
 		/*background: radial-gradient(circle, rgba(39,58,86,1) 0%, rgba(66,89,124,1) 51%, rgba(66,89,124,1) 100%);*/
 		/*background: radial-gradient(circle, rgba(0, 137, 123, 0.9) 0%, rgba(0, 137, 123,1) 51%, rgba(0, 137, 123,1) 100%);*/
 /*		background: radial-gradient(circle, rgba(57, 73, 171, 0.9) 0%, rgba(57, 73, 171,1) 51%, rgba(57, 73, 171,1) 100%);*/
-		background: radial-gradient(circle, rgba(13, 71, 161, 0.9) 0%, rgba(13, 71, 161, 1) 51%, rgba(13, 71, 161, 1) 100%);
+
+
+/*		background: radial-gradient(circle, rgba(13, 71, 161, 0.9) 0%, rgba(13, 71, 161, 1) 51%, rgba(13, 71, 161, 1) 100%);*/
+
+		background: rgb(39,58,86);
+		background: radial-gradient(circle, rgba(39,58,86,1) 0%, rgba(66,89,124,1) 51%, rgba(66,89,124,1) 100%);
+
 		z-index: 10;
 
 		-webkit-border-radius: 35%;
@@ -128,10 +138,10 @@ header {
 	h1 {
 		color: white;
 		font-weight: bold;
-		font-size: 2rem;
+		font-size: 2.8rem;
 		text-align: center;
 		width: 92%;
-		max-width: 780px;
+		max-width: 1080px;
 		margin: 0px auto;
 
 		text-shadow: 0px 1px 4px rgba(0, 0, 0, .3);
@@ -140,7 +150,7 @@ header {
 	h3 {
 		color: white;
 		font-weight: normal;
-		font-size: .9rem;
+		font-size: 1.2rem;
 		text-align: center;
 		width: 92%;
 		max-width: 780px;
@@ -159,6 +169,7 @@ header {
 		flex-wrap: wrap;
 	}
 		#linksContainer a {
+			font-size: 1.2rem;
 			padding: 14px 30px;
 			text-decoration: none;
 			-webkit-border-radius: 4px;
@@ -252,6 +263,25 @@ header {
 				border-radius: 4px;
 
 				visibility: hidden;
+			}
+
+
+		#gifContainer {
+			z-index: 1000;
+			position: absolute;
+			display: flex;
+			justify-content: center;
+
+			left: 0;
+			right: 0;
+			bottom: -20px;
+
+			pointer-events: none;
+		}
+
+			#gifContainer img {
+				max-width: 1180px;
+				pointer-events: none;
 			}
 
 

@@ -2,13 +2,19 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <title>MaskPlanner</title>
+    <title>MaskPlanner: Learning-Based Object-Centric Motion Generation from 3D Point Clouds</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"  />
     <link rel="stylesheet" type="text/css" href="assets/css/animatedBackground.css"  />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/site.webmanifest" />
   </head>
   <body>
     <div id="citePopup">
@@ -33,15 +39,22 @@
         Under review</h3>
 
         <div id="linksContainer">
-          <a href="#" target="_blank" class="iconLink">Paper <img src="assets/img/paper_icon2_64px.png"/></a>
+          <!-- <a href="#" target="_blank" class="iconLink">Paper <img src="assets/img/paper_icon2_64px.png"/></a> -->
+          <a href="#" target="_blank">Paper</a>
           <a href="https://github.com/gabrieletiboni/MaskPlanner" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
+          <a href="#datasetTab">Dataset</a>
           <!-- <a href="#contributionsSection">Contributions</a> -->
           <!-- <a href="#findingsSection">Highlights</a> -->
           <a class="linkLike openCitePopup">Cite</a>
         </div>
       </div>
 
-      <div id="videoContainer">
+      <div id="gifContainer">
+        <div>
+          <img src="assets/img/v14_max_azimuth_change15_cam_pos_id1_azimuthVel1.0_smooth_azimuth_update_pred_every5_reverse_transparent_SKIPfirstandlast100.gif" />
+        </div>
+      </div>
+      <!-- <div id="videoContainer">
         <div>
           <div id="videoPlaceholder">
             <span>
@@ -50,11 +63,11 @@
               Video coming soon
             </span>
           </div>
-          <!-- <video controls>
+            <video controls>
             <source src="assets/video/.mp4" type="video/mp4">
             Your browser does not support the video tag.
-          </video> -->
-        </div>
+          </video>
+        </div> -->
       </div>
     </header>
 
@@ -71,7 +84,7 @@
           Our findings crucially highlight the potential of learning-based OCMG to reduce engineering overhead and seamlessly adapt to several industrial use cases.
         </p>
         <br/>
-        <p style="font-style: italic;">Authored by <a href="https://gabrieletiboni.com/" target="_blank" class="easyLink">Gabriele Tiboni</a>, <a href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it" target="_blank" class="easyLink">Raffaello Camoriano</a>, <a href="http://www.tatianatommasi.com/" target="_blank" class="easyLink">Tatiana Tommasi</a>.
+        <p style="font-style: italic;">Authored by <a href="https://gabrieletiboni.com/" target="_blank" class="easyLink">Gabriele Tiboni</a>, <a href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it" target="_blank" class="easyLink">Raffaello Camoriano</a>, and <a href="http://www.tatianatommasi.com/" target="_blank" class="easyLink">Tatiana Tammasi</a> from Politecnico di Torino. This work was supported by <a href="https://www.efortrobotics.com/" target="_blank" class="easyLink">EFORT</a>, providing the authors with domain knowledge, object meshes, trajectory data, and access to specialized painting robot hardware for our real-world experimental evaluation.
         </p>
       </div>
 
@@ -82,6 +95,20 @@
         <span>
           Main qualitative results: the raw network predictions are shown for a representative test sample of each object Category. Points displayed with the same color belong to the same path. Point orientations are not visible.
         </span>
+      </div>
+
+      <div class="tab" id="experimentsTab">
+        <h2>Experiments</h2>
+           <p class="comingSoon">
+          Coming Soon
+        </p>
+      </div>
+
+      <div class="tab" id="datasetTab">
+        <h2>Dataset</h2>
+           <p class="comingSoon">
+          Coming Soon
+        </p>
       </div>
 
       <!-- <div class="tab" id="contributionsSection">
