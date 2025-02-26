@@ -15,10 +15,10 @@
     </tr>
   </thead>
   <tr>
-    <td><img src="docs/assets/realworld_pc.png" width="180" /></td>
-    <td><img src="docs/assets/realworld_predictions_postprocessed.png" width="180" /></td>
-    <td><img src="docs/assets/realworld_execution.gif" width="180" /></td>
-    <td><img src="docs/assets/realworld_final.png" width="180" /></td>
+    <td><img src="docs/assets/img/realworld_pc.png" width="180" /></td>
+    <td><img src="docs/assets/img/realworld_predictions_postprocessed.png" width="180" /></td>
+    <td><img src="docs/assets/img/realworld_execution.gif" width="180" /></td>
+    <td><img src="docs/assets/img/realworld_final.png" width="180" /></td>
   </tr>
   <tr>
     <td>Input Point Cloud</td>
