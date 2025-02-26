@@ -78,7 +78,9 @@ This repository is designed for flexible experimentation. Clone the repository a
     ```
 
 5. **(optional) Set up a custom work directory for the training runs:**
-    `export WORKDIR=<root/to/runs/dir>`
+    ```bash
+    export WORKDIR=<root/to/runs/dir>
+    ```
 
 
 #### Versioning 
