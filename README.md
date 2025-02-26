@@ -11,7 +11,7 @@
 <table style="text-align: center;">
   <thead>
     <tr>
-      <td style="font-size: smaller; font-weight: bold; text-align: center;" colspan="4"><em>Real-world experimental evaluation of MaskPlanner</em></td>
+      <td align="center" style="font-size: smaller; font-weight: bold; text-align: center;" colspan="4"><em>Real-world experimental evaluation of MaskPlanner</em></td>
     </tr>
   </thead>
   <tr>
