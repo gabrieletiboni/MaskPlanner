@@ -15,17 +15,16 @@
     </tr>
   </thead>
   <tr>
-    <td><img src="docs/assets/img/realworld_pc.png" width="180" /></td>
-    <td><img src="docs/assets/img/realworld_predictions_postprocessed.png" width="180" /></td>
-    <td><img src="docs/assets/img/realworld_execution.gif" width="180" /></td>
-    <td><img src="docs/assets/img/realworld_final.png" width="180" /></td>
+    <td><img src="docs/assets/img/realworld_pc.png" width="150" /></td>
+    <td><img src="docs/assets/img/realworld_predictions_postprocessed.png" width="150" /></td>
+    <td><img src="docs/assets/img/realworld_execution.gif" width="200" /></td>
+    <td><img src="docs/assets/img/realworld_final.png" width="222" /></td>
   </tr>
   <tr>
-    <td>Input Point Cloud</td>
-    <!-- <td>Fixed DR</td> -->
-    <td>Inference</td>
-    <td>Execution</td>
-    <td>Final result</td>
+    <td align="center">Input Point Cloud</td>
+    <td align="center">Inference</td>
+    <td align="center">Execution</td>
+    <td align="center">Final result</td>
   </tr>
 </table>
 
