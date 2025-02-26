@@ -77,6 +77,10 @@ This repository is designed for flexible experimentation. Clone the repository a
     python build.py install
     ```
 
+5. **(optional) Set up a custom work directory for the training runs:**
+    `export WORKDIR=<root/to/runs/dir>`
+
+
 #### Versioning 
 This code has been tested on:
 - python=3.7, nvcc=10.2, torch=1.9.0, pytorch3d=0.7.0
