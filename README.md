@@ -52,7 +52,7 @@ This repository is designed for flexible experimentation. Clone the repository a
     
     1.1 Download Extended PaintNet Dataset from [gabrieletiboni.github.io/MaskPlanner/](https://gabrieletiboni.github.io/MaskPlanner/)
 
-    1.2 `export PAINTNET_ROOT=<path/to/dataset/>`
+    1.2 `export PAINTNET_ROOT=<path/to/dataset/>`{:.bash .highlight}
 
 2. **Clone repo and install basic dependencies:**
     ```bash
