@@ -47,24 +47,33 @@ Our release is **under construction**, you can track its progress below:
 This repository is designed for flexible experimentation. Clone the repository and install all dependencies:
 
 1.  **Dataset**
-  1.1 Download Extended PaintNet Dataset from [gabrieletiboni.github.io/MaskPlanner/](https://gabrieletiboni.github.io/MaskPlanner/)
-  1.2 `export PAINTNET_ROOT=<path/to/dataset/>`
+    
+    1.1 Download Extended PaintNet Dataset from [gabrieletiboni.github.io/MaskPlanner/](https://gabrieletiboni.github.io/MaskPlanner/)
+
+    1.2 `export PAINTNET_ROOT=<path/to/dataset/>`
+
 2. **Clone repo and install basic dependencies:**
-  ```bash
-  git clone <this-repo>
-  cd MaskPlanner
-  pip install -r requirements.txt
-  ```
+    ```bash
+    git clone <this-repo>
+    cd MaskPlanner
+    pip install -r requirements.txt
+    ```
+
 3.  **Set up CUDA and PyTorch:**
-  3.1 Set up a full CUDA toolkit installation (not just the pytorch runtime version), i.e. `nvcc --version` must be working.
-  3.2 Install `pytorch` according to your CUDA version: https://pytorch.org/get-started/locally/
-  3.3 Install `pytorch3d`: https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
-  3.4. Pay attention to the compatibility among the above packages according to the installed versions. See below for the specific versions this code has been tested on.
+
+    3.1 Set up a full CUDA toolkit installation (not just the pytorch runtime version), i.e. `nvcc --version` must be working.
+
+    3.2 Install `pytorch` according to your CUDA version: https://pytorch.org/get-started/locally/
+
+    3.3 Install `pytorch3d`: https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
+
+    3.4. Pay attention to the compatibility among the above packages according to the installed versions. See below for the specific versions this code has been tested on.
+
 4. **Build and install additional dependencies:**
-  ```bash
-  cd torch-nndistance
-  python build.py install
-  ```
+    ```bash
+    cd torch-nndistance
+    python build.py install
+    ```
 
 #### Versioning 
 This code has been tested on:
