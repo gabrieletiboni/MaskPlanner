@@ -63,7 +63,7 @@ This repository is designed for flexible experimentation. Clone the repository a
 
 3.  **Set up CUDA and PyTorch:**
 
-    3.1 Set up a full CUDA toolkit installation (not just the pytorch runtime version), i.e. `nvcc --version` must be working.
+    3.1 Set up a full CUDA toolkit installation (not just the pytorch runtime version), i.e. the command `nvcc --version` must be working.
 
     3.2 Install `pytorch` according to your CUDA version: https://pytorch.org/get-started/locally/
 
