@@ -77,7 +77,7 @@ This repository is designed for flexible experimentation. Clone the repository a
     python build.py install
     ```
 
-5. **(optional) Set up a custom work directory for the training runs:**
+5. **(optional) Set up a custom working directory for the training runs:**
     ```bash
     export WORKDIR=<root/to/runs/dir>
     ```
