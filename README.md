@@ -1,6 +1,6 @@
 # MaskPlanner: Learning-Based Object-Centric Motion Generation from 3D Point Clouds
 
-[Preprint]() / [Website](https://gabrieletiboni.github.io/maskplanner/) / [Dataset](https://zenodo.org/records/XXXXXXX)
+[Preprint]() / [Website](https://gabrieletiboni.github.io/maskplanner/) / [Dataset](https://gabrieletiboni.github.io/maskplanner/)
 <!-- [Video](https://gabrieletiboni.github.io/maskplanner/) -->
 
 ##### Gabriele Tiboni, Raffaello Camoriano, Tatiana Tommasi
@@ -31,15 +31,16 @@
 Our release is **under construction**, you can track its progress below:
 
 - [ ] Extended PaintNet dataset for public download
-- [x] Code implementation
-  - [x] Dataset loader
-  - [x] Training and inference
+- [ ] Code implementation
+  - [ ] Dataset loader
+  - [ ] Training and inference
   - [ ] Baselines
     - [ ] Path-wise
     - [ ] Autoregressive
     - [ ] Point-wise
   - [ ] Results visualization and rendering
 - [ ] Pretrained models
+
 
 ## Installation
 
@@ -86,12 +87,15 @@ This code has been tested on:
 
 
 ## Getting started
+
 ### Training
 
 > ⚠️ *Coming Soon*
 
 ### Reproduce paper results
 > ⚠️ *Coming Soon*
+
+
 
 ## Citation
 
