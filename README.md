@@ -134,7 +134,7 @@ python train_maskplanner.py config=[maskplanner,containers_v2,longx_v2] seed=42
 
 If you find this repository useful, please consider citing:
 ```
-@misc{tiboni2025maskplannerlearningbasedobjectcentricmotion,
+@misc{tiboni2025maskplanner,
       title={MaskPlanner: Learning-Based Object-Centric Motion Generation from 3D Point Clouds}, 
       author={Gabriele Tiboni and Raffaello Camoriano and Tatiana Tommasi},
       year={2025},
