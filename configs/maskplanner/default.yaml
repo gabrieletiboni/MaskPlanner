@@ -1,0 +1,140 @@
+---
+config: null                    # .yaml config file
+name: null                      # wandb run name
+group: null                     # wandb group name
+group_suffix: ''                # wandb group suffix
+notes: null                     # wandb notes
+wandb: online
+
+
+
+dataset: null                   # Dataset name [containers-v2, windows-v1, shelves-v1, cuboids-v1]
+loss:                           # List of str with loss name [chamfer, repulsion, mse, asymm_segment_chamfer, reverse_asymm_point_chamfer]
+  - chamfer_with_stroke_masks
+eval_metrics:                   # Eval metrics [pcd, stroke_masks_metrics]
+  - pcd
+  - stroke_masks_metrics
+
+lambda_points: 1                # Traj is considered as set of vectors, i.e. <lambda> ordered points (Default=1, meaning that'\
+                                # 'chamfer distance would be computed normally on each traj point)
+overlapping: 0                  # Number of overlapping points between subsequent mini-sequences (only valid when lambda_points > 1)
+stroke_points: null             # Number of poses to predict for each stroke in train_stroke.py  (category-specific)
+n_strokes: null                 # Number of strokes to predict in train_stroke.py  (category-specific)
+stroke_pred: false              # Used in train_stroke.py
+load_pc: false                  # Whether to load the point cloud or not in StrokeDataset
+pc_points: 5120                 # Number of points to sub-sample for each point-cloud
+traj_points: 500                # Number of points to sub-sample for each trajectory
+augmentations: []               # List of str [rot, roty, rotx]
+extra_data: []                  # list of str [vel, orientquat, orientrotvec, orientnorm]
+weight_orient: 1.0              # Weight for L2-norm between orientation w.r.t. positional L2-norm
+normalization: per-dataset      # Normalization type for (mesh,traj) pairs. [per-mesh, per-dataset, none]
+data_scale_factor: null         # Manually set a `per-dataset` scale factor, instead of computing it or using a pre-computed value
+train_portion: null             # Percentage of training set samples to use training (see fewshot.yaml)
+cache_size: 3000                # Number of dataloader items cached on RAM (more requires more RAM)
+load_extra_data:                # list of extra items to load in the dataloader
+  - 'stroke_masks'
+
+epochs: 1250
+steplr: null                    # Deprecated. Use lr_sched.* instead
+lr_sched:                       # LR scheduler hyperparameters
+  gamma: 0.5
+  step_size: null               # step LR scheduler by gamma every `step_size` epochs
+  step_sizes: null              # List of int. Step LR scheduler once the nmber of epoch reaches one of the milestones in the list.
+  step_n_times: null            # step LR scheduler `step_n_times` during training, i.e. every epochs // (step_n_times+1)
+  step_after_epoch: null        # step LR scheduler `step_n_times` beyond `step_after_epoch` epochs, i.e. only counting the last remaining `epochs` - `step_after_epoch` epochs.
+
+batch_size: 32
+lr: 1e-3
+workers: 0                      # Number of workers for datasetloader
+eval_freq: 100                  # Evaluate model on test set and save it every <eval_freq> epochs
+eval_ckpt: last                 # Checkpoint for evaluating final results (best, last)
+output_dir: null                # Dir for saving models and results
+debug: false                    # debug mode: no wandb
+no_save: false                  # If set, avoids saving .npy of some final results
+seed: 0                         # Random seed (not set when equal to zero)
+model:
+  backbone: pointnet2_strokemasks  # Backbone [pointnet2_strokemasks, pointnet2]
+  affinetrans: false
+  hidden_size: [1024, 1024]
+  pretrained: true              # If exists, loads a pretrained model as starting backbone for global features encoder. The default pretrained model can be overwritten by pretrained_custom
+  pretrained_custom: null       # A custom pretrained model is loaded. Used for few-shot experiments.
+  load_strict: false            # If true, avoid loading last fc layer for custom pretrained models
+
+
+# loss weights
+soft_attraction: false          # Soft version of attraction loss
+weight_chamfer: 1.0
+weight_attraction_chamfer: 1.0
+weight_rich_attraction_chamfer: 1.0
+weight_repulsion: 1.0
+weight_mse: 1.0
+weight_align: 1.0
+weight_velcosine: 1.0
+weight_intra_align: 1.0
+weight_discriminator: 1.0
+weight_discr_training: 1.0
+weight_wdiscriminator: 1.0
+weight_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_point_chamfer: 1.0
+weight_stoch_reverse_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_segment_chamfer: 1.0
+weight_symm_segment_chamfer: 1.0
+weight_symm_point_chamfer: 1.0
+weight_emd: 1.0
+weight_chamfer_with_stroke_masks: 1.0
+explicit_weight_stroke_masks: 1.0        # relative weight of stroke_mask w.r.t chamfer when using `chamfer_with_stroke_masks` (this one is explicitly used within the method)
+explicit_no_stroke_weight: 1.0
+explicit_weight_stroke_masks_confidence: 100.
+weight_asymm_v6_chamfer_with_stroke_masks: 1.0                           # unused. the corresponding loss-term-weights are used within the `get_asymm_v6_chamfer_with_stroke_masks` method
+weight_asymm_v11_chamfer_with_stroke_masks: 1.0                          # unused. the corresponding loss-term-weights are used within the `get_asymm_v11_chamfer_with_stroke_masks` method
+weight_symm_v1_chamfer_with_stroke_masks: 1.0                            # unused. the corresponding loss-term-weights are used within the `get_symm_v1_chamfer_with_stroke_masks` method
+explicit_weight_segments_confidence: 10.                                 # weight for loss-term that learns a per-segment confidence score proportional to nearest distance to GT segments
+# weight_asymm_v6_chamfer_with_stroke_masks_with_segments_confidence: 1.   # unused. the corresponding loss-term-weights are used within the `get_asymm_v6_chamfer_with_stroke_masks_with_segments_confidence` method
+
+# debug
+min_centroids: false                     # Whether to compute chamfer distance on mini-sequences with centroids only
+overfitting: false                       # Bool. If true, overfit on the single i-th sample, with i equal to seed
+rep_target: null                         # DEBUG: target repulsion distance
+knn_repulsion: 1                         # Number of nearest neighbors to consider when using repulsion loss
+knn_gcn: 20                              # K value for adj matrix during GCN computation
+discr_train_iter: 1                      # Iterations of discr training on a single batch
+discr_train_freq: 1                      # Frequency of discr training. 1 -> every epoch; 2 -> once every two epochs; ...
+discr_lambdaGP: 10                       # Lambda for GP term.
+discr_input_type: pointcloud             # Discriminator input [pointcloud, strokecloud, singlestrokes]
+discr_backbone: 'pointnet2'              # Backbone for discriminator [dgcnn, pointnet2, mlp]
+singlestrokes_norm: false                # standardization of singlestrokes when using discr_input_type singlestrokes
+generator_input_type: mesh               # [mesh, random] Whether to completely disregard the input mesh as conditional input, and simply use random input noise to generate strokes in direct_stroke predictions
+random_input_dim: 32                     # Dimensionality of random input for GAN (i.e. generator_input_type: 'random')
+asymm_overlapping: false                 # Asymmetric overlapping (used in asym_segment_chamfer loss). Uses max overlapping for ground truth, but overlapping 1 for pred. So you predict fewer segments than there are in GT
+
+
+max_n_strokes: null                      # Number of predicted output stroke masks. It should be set as the maximum number of strokes per sample across the dataset (needs to be precomputed and known).
+out_prototypes: null                     # number of output stroke prototypes to predict
+sample_substroke_v1: false               # if True, sub sample a random part of the stroke with `substroke_points` points (or segments). Used for autoregressive task.
+sample_substroke_v2: false               # if True, sub sample all possible histories of all strokes with a history of `substroke_points` points (or segments). Used for autoregressive task.
+delay_stroke_masks_loss: false           # start stroke mask loss later on, when segments are already fairly close to GT
+start_stroke_masks_loss_at: 0            # start stroke mask loss at given epoch. Only used when delay_stroke_masks_loss is true
+smooth_target_stroke_masks: false        # if set, learn target stroke masks that are not binary, but have continuous values based on how close the segment is to its closest GT segment.
+traj_with_equally_spaced_points: false   # subsample GT trajectories such that consecutive points are equally spaced
+equal_spaced_points_distance: null       # distance for subsampling GT trajectories such that consecutive points are equally spaced by this much
+equal_in_3d_space: false                 # when `traj_with_equally_spaced_points` is True, use this flag for considering the 6D distance among poses (False) vs. the 3D distance among poses (only considering spatial dimensions) (True)
+n_pred_traj_points: null                 # when `traj_with_equally_spaced_points` is True, use this value as the number of output poses to predict with the network (since it cannot be set automatically by the dataloader). Must be pre-computed once for each dataset as the maximum number of poses.
+per_segment_confidence: false            # learn a per-segment confidence score
+delay_segment_conf_loss: false           # delay loss on per-segment confidence later on during training when segments are already fairly close to GT
+start_segment_conf_loss_at: 0            # start per-segment confidence loss at given epoch. Only used when delay_segment_conf_loss
+
+save_intermediate_models: false          # save more than just the best and last model (according to save_intermediate_models_freq). Used for the asymmetric curriculum chamfer to inspect the results at different times during training.
+save_intermediate_models_freq: 400       # save models as you're training, every <X> epochs.
+skip_rendering: false                    # if set, avoid rendering results at the end of training.
+# latest: false                          # = (not legacy): when false, suppress recent fixes and features to keep results reproducible with journal experiments.
+legacy: false                            # allows retro-compatible results before scheduler was implemented and before noStrokeWeight=1.0
+
+load_stroke_prototypes: false            # if True, load stroke prototypes in dataloader as well
+
+# weight_scheduler_factor: null          # (deprecated) multiplicative factor of change for point-wise loss weights, division rate of change for segment-wise loss weights
+# weight_scheduler_freq: null            # (deprecated) how many epochs loss weights should be changed
+psacd_scheduler:                         # handles loss weights for the Point-to-Segment Asymmetric Chamfer Distance (PSA-CD)
+  active: false
+  factor: null                           # point-wise and segment-wise weights are multiplied and divided by `factor`
+  freq: null                             # change weights every `freq` epochs
+  milestones: null                       # change weights according to the list of integer epoch milestones

@@ -1,0 +1,138 @@
+config:
+- stable_v1
+- out_sops
+- containers
+- traj_sampling_v2
+name: null
+group: null
+group_suffix: ''
+notes: null
+wandb: online
+dataset:
+- containers-v2
+proposal_loss:
+- hungarian_SoPs
+rollout_loss: null
+eval_metrics:
+- sop_metrics
+lambda_points: 1
+overlapping: 0
+stroke_points: null
+n_strokes: null
+stroke_pred: false
+load_pc: false
+pc_points: 5120
+traj_points: 1000
+augmentations: []
+extra_data:
+- orientnorm
+weight_orient: 0.25
+normalization: per-dataset
+data_scale_factor: null
+train_portion: null
+cache_size: 2000
+load_extra_data:
+- stroke_prototypes
+epochs: 2000
+steplr: null
+lr_sched:
+  gamma: 0.5
+  step_size: null
+  step_sizes: null
+  step_n_times: 2
+  step_after_epoch: null
+batch_size: 64
+lr: 0.001
+workers: 0
+eval_freq: 100
+eval_ckpt: last
+output_dir: null
+debug: false
+no_save: false
+seed: 42
+proposal_model:
+  backbone: pointnet2_sops
+  affinetrans: false
+  hidden_size:
+  - 1024
+  - 512
+  pretrained: true
+  pretrained_custom: null
+  load_strict: false
+  sqrt_output_bbox_sizes: false
+rollout_model:
+  backbone: mlp_rollout
+  hidden_size:
+  - 512
+  - 512
+  pretrained: false
+  pretrained_custom: null
+  object_features: false
+  load_strict: false
+auxiliary_model:
+  active: false
+soft_attraction: false
+weight_chamfer: 1.0
+weight_chamfer_bbox: 1.0
+weight_attraction_chamfer: 1.0
+weight_rich_attraction_chamfer: 1.0
+weight_repulsion: 1.0
+weight_mse: 1.0
+weight_align: 1.0
+weight_velcosine: 1.0
+weight_intra_align: 1.0
+weight_discriminator: 1.0
+weight_discr_training: 1.0
+weight_wdiscriminator: 1.0
+weight_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_point_chamfer: 1.0
+weight_stoch_reverse_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_segment_chamfer: 1.0
+weight_mse_strokes: 1.0
+weight_chamfer_strokes: 1.0
+weight_masked_mse_strokes: 1.0
+weight_mse_nexttoken: 1.0
+weight_mse_nexttoken_v2: 1.0
+explicit_weight_endofpath_confidence_loss: 100.0
+weight_masked_mse_strokes_from_segments: 1.0
+weight_hungarian_SoPs: 1.0
+explicit_no_sop_weight: 1.0
+explicit_weight_sop_confidence_loss: 10.0
+min_centroids: false
+overfitting: false
+rep_target: null
+knn_repulsion: 1
+knn_gcn: 20
+discr_train_iter: 1
+discr_train_freq: 1
+discr_lambdaGP: 10
+discr_input_type: pointcloud
+discr_backbone: pointnet2
+singlestrokes_norm: false
+generator_input_type: mesh
+random_input_dim: 32
+asymm_overlapping: false
+weight_scheduler_factor: null
+weight_scheduler_freq: null
+max_n_strokes: 33
+out_prototypes: 33
+max_n_segments_per_stroke: 196
+out_segments_per_stroke: null
+out_points_per_stroke: 590
+sample_substroke_v1: false
+sample_substroke_v2: false
+substroke_points: 5
+end_of_path_confidence: false
+relative_predictions: false
+traj_with_equally_spaced_points: true
+equal_spaced_points_distance: 0.05
+trasl_noise_stdev: 0.005
+orient_noise_stdev: 0.025
+stroke_prototype_kind: start_of_path_token
+stroke_prototype_dim: 48
+sop_conf_threshold: 0.5
+use_gt_sop_at_test_time: true
+start_of_path_token_length: 8
+equal_in_3d_space: false
+auto_wandb_group: Stable_v1_Out_sops_Containers_Traj_sampling_v2
+task_name: ODv1_strokeProposal

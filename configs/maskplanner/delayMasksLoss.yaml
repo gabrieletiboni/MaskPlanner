@@ -1,0 +1,8 @@
+---
+# Delay stroke masks loss
+explicit_weight_stroke_masks: 0.0
+explicit_weight_stroke_masks_confidence: 0.0
+target_explicit_weight_stroke_masks: 1.0
+target_explicit_weight_stroke_masks_confidence: 100.
+delay_stroke_masks_loss: true
+# start_stroke_masks_loss_at:  # defined in longx.yaml

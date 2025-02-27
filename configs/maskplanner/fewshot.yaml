@@ -1,0 +1,2 @@
+--- # Few-shot only sees <train_portion>% of this category's training set.
+train_portion: 0.  # Must be defined explicitly as a CLI arg. This config file is simply just used for grouping all the runs under the same wandb group. 

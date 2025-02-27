@@ -1,0 +1,12 @@
+---   # Cuboids-specific parameters
+dataset: cuboids-v2
+
+traj_points: 2000
+n_pred_traj_points: 3000
+# max n points with traj sampling v3 (yopo_v2): 2959
+stroke_points: 330
+
+n_strokes: 6  # deprecated
+max_n_strokes: 6
+
+batch_size: 64

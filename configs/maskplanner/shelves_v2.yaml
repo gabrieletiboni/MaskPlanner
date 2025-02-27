@@ -1,0 +1,10 @@
+---   # Shelves-v2 : more samples, tinier samples, fewer inner shelves
+dataset: shelves-v2
+
+traj_points: 3000
+n_pred_traj_points: 3800
+# max n points with traj sampling v3 (yopo_v2): 3448
+
+max_n_strokes: 41
+
+batch_size: 64

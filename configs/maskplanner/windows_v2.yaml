@@ -1,0 +1,10 @@
+---   # Windows-specific parameters
+dataset: windows-v2
+
+traj_points: 675
+n_pred_traj_points: 1350 
+# max n points with traj sampling v3 (yopo_v2): 1262
+
+max_n_strokes: 22
+
+batch_size: 64

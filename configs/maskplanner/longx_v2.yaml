@@ -1,0 +1,14 @@
+---
+epochs: 4800
+# steplr: 800  # deprecated. Use lr_sched.* instead
+eval_freq: 200
+
+# PSACD
+# psacd_scheduler:
+#   freq: 1600     # defined in sched_v* or asymm_chamfer
+
+# DELAY STROKE MASKS LOSS
+start_stroke_masks_loss_at: 3200
+
+# DELAY PER-SEGMENT CONFIDENCE LOSS
+start_segment_conf_loss_at: 3200

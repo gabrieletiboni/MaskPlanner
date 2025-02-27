@@ -1,0 +1,9 @@
+---
+# LR sched parameters v7
+lr_sched:
+  step_n_times: null
+  step_after_epoch: null
+  step_sizes: [1600, 2240, 2880, 3520, 4160]
+
+psacd_scheduler:
+  freq: 1600

@@ -1,0 +1,25 @@
+---
+# Loss ablation w.r.t asymm_v9:
+# asymmetric chamfer, but no curriculum
+batch_size: 32
+extra_data: 
+  - orientnorm
+weight_orient: 0.25
+lambda_points: 4
+overlapping: 1
+
+loss:
+  - asymm_v11_chamfer_with_stroke_masks
+weight_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_point_chamfer: 1.0
+asymm_overlapping: false
+
+# weight_scheduler_factor: null   # no curriculum (deprecated)
+
+psacd_scheduler:
+  active: false  # no curriculum
+  factor: 0.            
+  freq: null            # defined in longx.yaml
+  milestones: null
+
+eval_ckpt: last

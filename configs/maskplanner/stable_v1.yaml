@@ -1,0 +1,11 @@
+---
+batch_size: 32
+loss:
+  - chamfer_with_stroke_masks
+#  - rich_attraction_chamfer
+#weight_rich_attraction_chamfer: 0.5
+extra_data: 
+  - orientnorm
+weight_orient: 0.25
+lambda_points: 4
+overlapping: 1

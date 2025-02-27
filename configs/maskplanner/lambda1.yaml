@@ -1,0 +1,9 @@
+---
+batch_size: 32
+loss:
+  - chamfer_with_stroke_masks
+extra_data:
+  - orientnorm
+weight_orient: 0.25
+lambda_points: 1
+overlapping: 0

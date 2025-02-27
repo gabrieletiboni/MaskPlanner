@@ -1,0 +1,116 @@
+config:
+- asymm_chamfer_v9.yaml
+- delayMasksLoss.yaml
+- jointCategory_1-2-3.yaml
+- longx_v2.yaml
+- traj_sampling_v2.yaml
+name: null
+group: null
+group_suffix: ''
+notes: null
+wandb: online
+dataset:
+- cuboids-v2
+- windows-v2
+- shelves-v2
+loss:
+- asymm_v6_chamfer_with_stroke_masks
+eval_metrics:
+- pcd
+lambda_points: 4
+overlapping: 1
+stroke_points: null
+n_strokes: null
+stroke_pred: false
+load_pc: false
+pc_points: 5120
+traj_points: 3000
+augmentations: []
+extra_data:
+- orientnorm
+weight_orient: 0.25
+normalization: per-dataset
+data_scale_factor: null
+train_portion: null
+cache_size: 2000
+epochs: 4800
+steplr: 800
+batch_size: 64
+lr: 0.001
+workers: 0
+eval_freq: 200
+eval_ckpt: last
+output_dir: null
+debug: false
+no_save: false
+seed: 42
+model:
+  backbone: pointnet2_strokemasks
+  affinetrans: false
+  hidden_size:
+  - 1024
+  - 1024
+  pretrained: true
+  pretrained_custom: null
+  load_strict: false
+soft_attraction: false
+weight_chamfer: 1.0
+weight_attraction_chamfer: 1.0
+weight_rich_attraction_chamfer: 1.0
+weight_repulsion: 1.0
+weight_mse: 1.0
+weight_align: 1.0
+weight_velcosine: 1.0
+weight_intra_align: 1.0
+weight_discriminator: 1.0
+weight_discr_training: 1.0
+weight_wdiscriminator: 1.0
+weight_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_point_chamfer: 100
+weight_stoch_reverse_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_segment_chamfer: 0.01
+weight_symm_segment_chamfer: 1.0
+weight_symm_point_chamfer: 1.0
+weight_emd: 1.0
+weight_chamfer_with_stroke_masks: 1.0
+explicit_weight_stroke_masks: 0.0
+explicit_no_stroke_weight: 0.5
+explicit_weight_stroke_masks_confidence: 0.0
+weight_asymm_v6_chamfer_with_stroke_masks: 1.0
+weight_asymm_v11_chamfer_with_stroke_masks: 1.0
+weight_symm_v1_chamfer_with_stroke_masks: 1.0
+explicit_weight_segments_confidence: 10.0
+min_centroids: false
+overfitting: false
+rep_target: null
+knn_repulsion: 1
+knn_gcn: 20
+discr_train_iter: 1
+discr_train_freq: 1
+discr_lambdaGP: 10
+discr_input_type: pointcloud
+discr_backbone: pointnet2
+singlestrokes_norm: false
+generator_input_type: mesh
+random_input_dim: 32
+asymm_overlapping: false
+weight_scheduler_factor: 0.1
+weight_scheduler_freq: 1600
+max_n_strokes: 41
+out_bboxes: null
+sample_substroke_v1: false
+sample_substroke_v2: false
+delay_stroke_masks_loss: true
+start_stroke_masks_loss_at: 3200
+smooth_target_stroke_masks: false
+traj_with_equally_spaced_points: true
+equal_spaced_points_distance: 0.05
+n_pred_traj_points: 3800
+per_segment_confidence: false
+delay_segment_conf_loss: false
+start_segment_conf_loss_at: 3200
+save_intermediate_models: true
+target_explicit_weight_stroke_masks: 1.0
+target_explicit_weight_stroke_masks_confidence: 100.0
+auto_wandb_group: Asymm_chamfer_v9_DelayMasksLoss_JointCategory_1-2-3_Longx_v2_Traj_sampling_v2
+task_name: MaskPlanner

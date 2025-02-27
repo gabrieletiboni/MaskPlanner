@@ -25,7 +25,7 @@
   <tr>
     <td align="center">Input Point Cloud</td>
     <td align="center">Inference</td>
-    <td align="center">Execution</td>
+    <td align="center">Execution (x4)</td>
     <td align="center">Final result</td>
   </tr>
 </table>
@@ -34,13 +34,13 @@ Our release is **under construction**, you can track its progress below:
 
 - [ ] Extended PaintNet dataset for public download
 - [ ] Code implementation
-  - [ ] Dataset loader
-  - [ ] Training and inference
+  - [x] Dataset loader
+  - [x] Training and inference
   - [ ] Baselines
     - [ ] Path-wise
     - [ ] Autoregressive
     - [ ] Point-wise
-  - [ ] Results visualization and rendering
+  - [x] Results visualization and rendering
 - [ ] Pretrained models
 
 
@@ -71,15 +71,12 @@ This repository is designed for flexible experimentation. Clone the repository a
 
     3.4. Pay attention to the compatibility among the above packages according to the installed versions. See below for the specific versions this code has been tested on.
 
-4. **Build and install additional dependencies:**
-    ```bash
-    cd torch-nndistance
-    python build.py install
-    ```
 
-5. **(optional) Set up a custom working directory for the training runs:**
+4. **(optional) Set up a custom working directory for the training runs and wandb login:**
     ```bash
     export WORKDIR=<root/to/runs/dir>
+
+    # login to wandb if you want to log runs on wandb with: python [...] wandb=online
     ```
 
 
@@ -96,12 +93,40 @@ This code has been tested on:
 
 ## Getting started
 
-### Training
+### Training MaskPlanner
+1. Quick debugging test (Cuboids)
+    ```bash
+    # Implicit, using `maskplanner` as an alias for multiple config files
+    python train_maskplanner.py config=[maskplanner,cuboids_v2,longx_v2,debug] seed=42
 
-> ⚠️ *Coming Soon*
+    # Explicit, using the full list of config file names and some parameters explicitly. Equivalent to the above command.
+    python train_maskplanner.py config=[asymm_chamfer_v9,delayMasksLoss,traj_sampling_v2,sched_v9,cuboids_v2,longx_v2] \
+                                wandb=disabled  \
+                                epochs=20 \
+                                eval_freq=10 \
+                                batch_size=2 \
+                                debug=true \
+                                no_save=true \
+                                seed=42
+    ```
+
+2. Official (Cuboids)
+    ```bash
+    python train_maskplanner.py config=[maskplanner,cuboids_v2,longx_v2] seed=42
+    ```
+
+Config files defined in the `config=[...]` parameters can be found at `configs/maskplanner`. If a parameter appears in multiple config files, the order of the config files matter (later configs overwrite preceeding configs). A parameter may always be explicitly specified on the command line, talking ultimate priority (e.g. `seed=42`).
+In the examples above, the config name `maskplanner` is an alias that includes multiple config files at the same time (i.e. `asymm_chamfer_v9,delayMasksLoss,traj_sampling_v2,sched_v9`). See aliases in `utils/args.py:config_aliases`.
+See more examples at the top of `train_maskplanner.py`.
+
 
 ### Reproduce paper results
-> ⚠️ *Coming Soon*
+```bash
+python train_maskplanner.py config=[maskplanner,cuboids_v2,longx_v2] seed=42
+python train_maskplanner.py config=[maskplanner,windows_v2,longx_v2] seed=42
+python train_maskplanner.py config=[maskplanner,shelves_v2,longx_v2] seed=42
+python train_maskplanner.py config=[maskplanner,containers_v2,longx_v2] seed=42
+```
 
 
 

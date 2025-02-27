@@ -1,0 +1,8 @@
+---
+# LR sched parameters v4
+lr_sched:
+  step_n_times: 2
+  step_after_epoch: 3200
+
+psacd_scheduler:
+  freq: 1600

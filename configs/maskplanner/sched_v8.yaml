@@ -1,0 +1,10 @@
+---
+# LR sched parameters v8
+lr_sched:
+  step_n_times: null
+  step_after_epoch: null
+  step_sizes: [1000, 2000, 3000, 4000]
+
+psacd_scheduler:
+  freq: null
+  milestones: [1000, 2000]

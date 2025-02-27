@@ -1,0 +1,13 @@
+---
+epochs: 240
+steplr: 40
+eval_freq: 20
+
+# ASYMM
+weight_scheduler_freq: 80
+
+# DELAY STROKE MASKS LOSS
+start_stroke_masks_loss_at: 160
+
+# DELAY PER-SEGMENT CONFIDENCE LOSS
+start_segment_conf_loss_at: 160

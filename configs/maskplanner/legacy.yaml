@@ -1,0 +1,12 @@
+---
+# Legacy version: (1) no LR scheduler, (2) explicit_no_stroke_weight=0.5
+legacy: true
+
+# Instead of setting the parameters to null, the assert error in the code is explicitly thrown
+# lr_sched:
+#   step_size: null
+#   step_sizes: null
+#   step_n_times: null
+#   step_after_epoch: null 
+
+explicit_no_stroke_weight: 0.5

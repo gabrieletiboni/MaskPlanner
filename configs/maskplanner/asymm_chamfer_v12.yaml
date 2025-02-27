@@ -1,0 +1,27 @@
+---
+# Asymmetric, no curriculum, but both point-wise and segment-wise backward terms 
+# w^f_p = 0       w^f_s = 1
+# w^b_p = 1       w^b_s = 1
+batch_size: 32
+extra_data: 
+  - orientnorm
+weight_orient: 0.25
+lambda_points: 4
+overlapping: 1
+
+loss:
+  - asymm_v6_chamfer_with_stroke_masks  # temp method that explicitly computes all asymm_v6 loss terms
+weight_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_point_chamfer: 1.0
+weight_reverse_asymm_segment_chamfer: 1.0
+asymm_overlapping: false
+
+# weight_scheduler_factor: null   # no curriculum (deprecated)
+
+psacd_scheduler:
+  active: false  # no curriculum
+  factor: 0.            
+  freq: null            # overwritten by sched_v* files
+  milestones: null
+
+eval_ckpt: last

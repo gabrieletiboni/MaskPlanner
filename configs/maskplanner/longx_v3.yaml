@@ -1,0 +1,15 @@
+---
+# THIS WHOLE FILE IS DEPRECATED.
+# Use yopo_sched_v2 instead to test a steplr different than 800.
+epochs: 4800
+steplr: 1600  # deprecated. Use lr_sched.* instead. It's kept to throw an error if this file is used as a config.
+eval_freq: 200
+
+# ASYMM
+weight_scheduler_freq: 1600
+
+# DELAY STROKE MASKS LOSS
+start_stroke_masks_loss_at: 3200
+
+# DELAY PER-SEGMENT CONFIDENCE LOSS
+start_segment_conf_loss_at: 3200

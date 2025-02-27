@@ -1,0 +1,8 @@
+---
+no_save: true
+debug: true
+batch_size: 2
+epochs: 20
+eval_freq: 10
+wandb: disabled
+# pc_points: 514

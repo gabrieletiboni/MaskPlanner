@@ -1,0 +1,5 @@
+---
+# v3: as in v2, but points distance is computed w.r.t. (x,y,z) coordinates only, effectively resulting in equally spaced points in space.
+traj_with_equally_spaced_points: true
+equal_spaced_points_distance: 0.05
+equal_in_3d_space: true    # v3

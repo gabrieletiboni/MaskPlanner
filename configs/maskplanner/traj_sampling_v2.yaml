@@ -1,0 +1,11 @@
+---
+# Sample GT trajectories such that consecutive points are equally spaced among each other.
+# This leads to a varying number of traj points for different samples, depending on the size of
+# the input object.
+
+# this is in contrast with the original PaintNet sampling which would sample points at equal time intervals
+# among each other (hence preserving the velocity information), but would use different time intervals for different
+# objects, because the total number of points subsample was fixed.
+traj_with_equally_spaced_points: true
+equal_spaced_points_distance: 0.05
+equal_in_3d_space: false

@@ -1,0 +1,25 @@
+---
+batch_size: 32
+extra_data: 
+  - orientnorm
+weight_orient: 0.25
+lambda_points: 4
+overlapping: 1
+
+loss:
+  - symm_v1_chamfer_with_stroke_masks
+weight_symm_point_chamfer: 100
+weight_symm_segment_chamfer: 0.01
+asymm_overlapping: false
+
+# Decrease the weight_reverse_asymm_point_chamfer by *_factor, every *_freq epochs
+# weight_scheduler_factor: 0.1  # deprecated
+# weight_scheduler_freq: 300     # defined in longx.yaml
+
+psacd_scheduler:
+  active: true
+  factor: 0.1            
+  freq: null            # defined in longx.yaml
+  milestones: null
+
+eval_ckpt: last

@@ -1,0 +1,13 @@
+---
+epochs: 2400
+# steplr: 400  # deprecated. Use lr_sched.* instead
+eval_freq: 100
+
+# ASYMM
+weight_scheduler_freq: 800
+
+# DELAY STROKE MASKS LOSS
+start_stroke_masks_loss_at: 1600
+
+# DELAY PER-SEGMENT CONFIDENCE LOSS
+start_segment_conf_loss_at: 1600

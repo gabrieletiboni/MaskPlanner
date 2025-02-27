@@ -1,0 +1,9 @@
+---  # From jointCategory-1-2-3 to containers_v2
+dataset: containers-v2
+data_scale_factor: 776.1721217165386
+n_pred_traj_points: 3800
+max_n_strokes: 41
+batch_size: 64
+
+model:
+  pretrained_custom: pretrained_models/EBW7Q-S42

@@ -1,0 +1,26 @@
+---
+batch_size: 32
+extra_data: 
+  - orientnorm
+weight_orient: 0.25
+lambda_points: 4
+overlapping: 1
+
+loss:
+  - asymm_v6_chamfer_with_stroke_masks  # temp method that explicitly computes all asymm_v6 loss terms
+weight_asymm_segment_chamfer: 1.0
+weight_reverse_asymm_point_chamfer: 100
+weight_reverse_asymm_segment_chamfer: 0.01
+asymm_overlapping: true
+
+# Decrease the weight_reverse_asymm_point_chamfer by *_factor, every *_freq epochs
+# weight_scheduler_factor: 0.1  # deprecated
+# weight_scheduler_freq: 300     # defined in longx.yaml
+
+psacd_scheduler:
+  active: true
+  factor: 0.1            
+  freq: null            # defined in longx.yaml
+  milestones: null
+
+eval_ckpt: last
