@@ -1,6 +1,6 @@
 # MaskPlanner: Learning-Based Object-Centric Motion Generation from 3D Point Clouds
 
-[Preprint]() / [Website](https://gabrieletiboni.github.io/maskplanner/) / [Dataset](https://gabrieletiboni.github.io/maskplanner/)
+[Preprint](https://arxiv.org/abs/2502.18745) / [Website](https://gabrieletiboni.github.io/maskplanner/) / [Dataset](https://gabrieletiboni.github.io/maskplanner/)
 <!-- [Video](https://gabrieletiboni.github.io/maskplanner/) -->
 
 ##### Gabriele Tiboni, Raffaello Camoriano, Tatiana Tommasi
