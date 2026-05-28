@@ -1,5 +1,0 @@
----
-# Data augmentations v1:
-# - point-cloud online subsampling
-augmentations:
-  - pc_online_subsampling

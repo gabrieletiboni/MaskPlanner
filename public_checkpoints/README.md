@@ -1,3 +1,0 @@
-# Public checkpoints
-
-> ⚠️ *Coming Soon*

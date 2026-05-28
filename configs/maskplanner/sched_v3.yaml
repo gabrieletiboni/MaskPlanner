@@ -1,7 +1,0 @@
----
-# LR sched parameters v3
-lr_sched:
-  step_size: 2400
-
-psacd_scheduler:
-  freq: 1600
