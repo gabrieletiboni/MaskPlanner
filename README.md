@@ -30,13 +30,10 @@
   </tr>
 </table>
 
-<table align="center" style="border: 2px solid #2196F3; border-radius: 8px; background-color: #E3F2FD; width: 100%;">
+<table align="center" bgcolor="#E8EAF6" style="border: 2px solid #2196F3; border-radius: 8px; background-color: #E8EAF6; width: 100%;">
   <tr>
-    <td valign="middle" width="96" align="center">
-      <img src="docs/assets/img/code_moved_icon.png" alt="" width="72"/>
-    </td>
-    <td valign="middle">
-      <h3 style="margin: 0 0 6px 0;">The code has moved to a new repository</h3>
+    <td style="padding: 16px;">
+      <h3 style="margin: 0 0 6px 0;"><img src="docs/assets/img/code_moved_icon.png" alt="" height="22" align="absmiddle"/>&nbsp;&nbsp;The code has moved to a new repository</h3>
       <p style="margin: 0;">This repository only hosts the project website. The MaskPlanner training and inference code is now maintained at <a href="https://github.com/vandal-lab/MaskPlanner"><strong>github.com/vandal-lab/MaskPlanner</strong></a> — please head there for installation, training, and pretrained models.</p>
     </td>
   </tr>
