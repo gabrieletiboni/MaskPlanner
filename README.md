@@ -1,13 +1,13 @@
-# MaskPlanner: Learning-Based Object-Centric Motion Generation from 3D Point Clouds
+# MaskPlanner: a Framework for 3D Learning-Based Object-Centric Motion Generation and Applications to Robotic Spray Painting
 
-[Preprint](https://arxiv.org/abs/2502.18745) / [Website](https://gabrieletiboni.github.io/maskplanner/) / [Dataset](https://gabrieletiboni.github.io/maskplanner/)
+[Paper](https://arxiv.org/abs/2502.18745) / [Website](https://gabrieletiboni.github.io/maskplanner/) / [Code](https://github.com/vandal-lab/MaskPlanner) / [Dataset](https://zenodo.org/records/14967945)
 <!-- [Video](https://gabrieletiboni.github.io/maskplanner/) -->
 
 ##### Gabriele Tiboni, Raffaello Camoriano, Tatiana Tommasi
 
-##### Under review.
+##### Accepted at IEEE Transactions on Robotics (T-RO).
 
-*Abstract:* Object-Centric Motion Generation (OCMG) plays a key role in a variety of industrial applications—such as robotic spray painting and welding—requiring efficient, scalable, and generalizable algorithms to plan multiple long-horizon trajectories over free-form 3D objects. However, existing solutions rely on specialized heuristics, expensive optimization routines, or restrictive geometry assumptions that limit their adaptability to real-world scenarios. In this work, we introduce a novel, fully data-driven framework that tackles OCMG directly from 3D point clouds, learning to generalize expert path patterns across free-form surfaces. We propose MaskPlanner, a deep learning method that predicts local path segments for a given object while simultaneously inferring "path masks" to group these segments into distinct paths. This design induces the network to capture both local geometric patterns and global task requirements in a single forward pass. Extensive experimentation on a realistic robotic spray painting scenario shows that our approach attains near-complete coverage (above 99%) for unseen objects, while it remains task-agnostic and does not explicitly optimize for paint deposition. Moreover, our real-world validation on a 6-DoF specialized painting robot demonstrates that the generated trajectories are directly executable and yield expert-level painting quality. Our findings crucially highlight the potential of the proposed learning method for OCMG to reduce engineering overhead and seamlessly adapt to several industrial use cases.
+*Abstract:* Object-Centric Motion Generation (OCMG) plays a key role in a variety of industrial applications—such as robotic spray painting and welding—requiring efficient, scalable, and generalizable algorithms to plan multiple long-horizon trajectories over free-form 3D objects. However, existing solutions rely on specialized heuristics, expensive optimization routines, or restrictive geometry assumptions that limit their adaptability to real-world scenarios. In this work, we introduce a novel, fully data-driven framework that tackles OCMG directly from 3D point clouds, learning to generalize expert path patterns across free-form surfaces. We propose MaskPlanner, a deep learning method that predicts local path segments for a given object while simultaneously inferring "path masks" to group these segments into distinct paths. This design induces the network to capture both local geometric patterns and global task requirements in a single forward pass. Extensive experimentation on a realistic robotic spray painting scenario shows that our approach attains near-complete coverage (above 99%) for unseen objects, while it remains task-agnostic and does not explicitly optimize for paint deposition. Moreover, our real-world validation on a 6-DoF specialized painting robot demonstrates that the generated paths are directly executable and yield expert-level painting quality. We additionally provide empirical evidence that our approach remains complementary to downstream trajectory optimization methods, and applicable to tasks beyond spray painting.
 
 <!--![maskplanner_overview](docs/assets/img/maskplanner_overview.png)-->
 <table style="text-align: center;">
@@ -30,104 +30,7 @@
   </tr>
 </table>
 
-Our release is **under construction**, you can track its progress below:
-
-- [x] Extended PaintNet dataset for public download
-- [ ] Code implementation
-  - [x] Dataset loader
-  - [x] Training and inference
-  - [ ] Baselines
-    - [ ] Path-wise
-    - [ ] Autoregressive
-    - [ ] Point-wise
-  - [x] Results visualization and rendering
-- [ ] Pretrained models
-
-
-## Installation
-
-This repository is designed for flexible experimentation. Clone the repository and install all dependencies:
-
-1.  **Dataset**
-    
-    1.1 Download Extended PaintNet Dataset from [gabrieletiboni.github.io/MaskPlanner/](https://gabrieletiboni.github.io/MaskPlanner/)
-
-    1.2 `export PAINTNET_ROOT=<path/to/dataset/>`
-
-2. **Clone repo and install basic dependencies:**
-    ```bash
-    git clone <this-repo>
-    cd MaskPlanner
-    pip install -r requirements.txt
-    ```
-
-3.  **Set up CUDA and PyTorch:**
-
-    3.1 Set up a full CUDA toolkit installation (not just the pytorch runtime version), i.e. the command `nvcc --version` must be working.
-
-    3.2 Install `pytorch` according to your CUDA version: https://pytorch.org/get-started/locally/
-
-    3.3 Install `pytorch3d`: https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
-
-    3.4. Pay attention to the compatibility among the above packages according to the installed versions. See below for the specific versions this code has been tested on.
-
-
-4. **(optional) Set up a custom working directory for the training runs and wandb login:**
-    ```bash
-    export WORKDIR=<root/to/runs/dir>
-
-    # login to wandb if you want to log runs on wandb with: python [...] wandb=online
-    ```
-
-
-#### Versioning 
-This code has been tested on:
-- python=3.7, nvcc=10.2, torch=1.9.0, pytorch3d=0.7.0
-  - pytorch3d=0.7.0 was installed from source from Github: `pip install "git+https://github.com/facebookresearch/pytorch3d.git@v0.7.0"`
-- python=3.8, nvcc=11.6, torch=1.13.1, pytorch3d=0.7.2
-  - In this case, pytorch3d 0.7.2 could only be installed through the Anaconda cloud (`conda install pytorch3d -c pytorch3d`, or through the specific label `pytorch3d-0.7.2-py38_cu116_pyt1131.tar.bz2`)
-- python=3.8, nvcc=12.1, torch=2.2.0, pytorch3d commit c292c71c1adb0712c12cf4fa67a7a84ad9b44e5c
-    - pytorch3d installed from main branch on Github through command: `pip install "git+https://github.com/facebookresearch/pytorch3d.git"` (HEAD commit at the time of writing is: c292c71c1adb0712c12cf4fa67a7a84ad9b44e5c)
-
-
-
-## Getting started
-
-### Training MaskPlanner
-1. Quick training for debugging (Windows category)
-    ```bash
-    # Implicit, using `maskplanner` as an alias for multiple config files
-    python train_maskplanner.py config=[maskplanner,windows_v2,longx_v2,debug] seed=42
-
-    # Explicit, using the full list of config file names and some parameters explicitly. Equivalent to the above command.
-    python train_maskplanner.py config=[asymm_chamfer_v9,delayMasksLoss,traj_sampling_v2,sched_v9,windows_v2,longx_v2] \
-                                wandb=disabled  \
-                                epochs=20 \
-                                eval_freq=10 \
-                                batch_size=2 \
-                                debug=true \
-                                no_save=true \
-                                seed=42
-    ```
-
-2. Complete training (Windows category)
-    ```bash
-    python train_maskplanner.py config=[maskplanner,windows_v2,longx_v2] seed=42
-    ```
-
-Config files defined in the `config=[...]` parameters can be found at `configs/maskplanner`. If a parameter appears in multiple config files, the order of the config files matter (later configs overwrite preceeding configs). A parameter may always be explicitly specified on the command line, talking ultimate priority (e.g. `seed=42`).
-In the examples above, the config name `maskplanner` is an alias that includes multiple config files at the same time (i.e. `asymm_chamfer_v9,delayMasksLoss,traj_sampling_v2,sched_v9`). See aliases in `utils/args.py:config_aliases`.
-See more examples at the top of `train_maskplanner.py`.
-
-
-### Reproduce paper results
-```bash
-python train_maskplanner.py config=[maskplanner,cuboids_v2,longx_v2] seed=42
-python train_maskplanner.py config=[maskplanner,windows_v2,longx_v2] seed=42
-python train_maskplanner.py config=[maskplanner,shelves_v2,longx_v2] seed=42
-python train_maskplanner.py config=[maskplanner,containers_v2,longx_v2] seed=42
-```
-
+The code implementation is available at [github.com/vandal-lab/MaskPlanner](https://github.com/vandal-lab/MaskPlanner). The Extended PaintNet dataset can be downloaded from [Zenodo](https://zenodo.org/records/14967945).
 
 
 ## Citation
@@ -149,4 +52,8 @@ If you find this repository useful, please consider citing:
 
 ## Acknowledgments
 
-We acknowledge the EFORT group for providing object mesh files, expert trajectory data, access to a proprietary spray painting simulator and to specialized painting robot hardware for the real-world experimental evaluation.
+This study was carried out within the FAIR - Future Artificial Intelligence Research and received funding from the European Union Next-GenerationEU (PIANO NAZIONALE DI RIPRESA E RESILIENZA (PNRR) – MISSIONE 4 COMPONENTE 2, INVESTIMENTO 1.3 – D.D. 1555 11/10/2022, PE00000013). This manuscript reflects only the authors' views and opinions; neither the European Union nor the European Commission can be considered responsible for them.
+
+We also acknowledge the support of the European H2020 ELISE project ([www.elise-ai.eu](https://www.elise-ai.eu)) and the CINECA award under the ISCRA initiative (DRE-URL - HP10CF881L) for the availability of HPC resources and support.
+
+This work was supported by the EFORT group, providing the authors with domain knowledge, original object meshes, trajectory data, and access to the proprietary spray painting simulator and hardware used during the experiments.

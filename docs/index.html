@@ -2,7 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <title>MaskPlanner: Learning-Based Object-Centric Motion Generation from 3D Point Clouds</title>
+    <title>MaskPlanner: a Framework for 3D Learning-Based Object-Centric Motion Generation and Applications to Robotic Spray Painting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"  />
     <link rel="stylesheet" type="text/css" href="assets/css/animatedBackground.css"  />
@@ -42,14 +42,14 @@
       <div id="headerBackground"></div>
 
       <div id="elevatedContent">
-        <h1>MaskPlanner: Learning-Based Object-Centric<br/>Motion Generation from 3D Point Clouds</h1>
+        <h1>MaskPlanner: a Framework for 3D Learning-Based Object-Centric Motion Generation<br/>and Applications to Robotic Spray Painting</h1>
         <h3 style="font-style: normal;">G. Tiboni, R. Camoriano, T. Tommasi<br/>
-        Under review</h3>
+        IEEE Transactions on Robotics (T-RO)</h3>
 
         <div id="linksContainer">
           <!-- <a href="#" target="_blank" class="iconLink">Paper <img src="assets/img/paper_icon2_64px.png"/></a> -->
           <a href="https://arxiv.org/abs/2502.18745" target="_blank">Paper</a>
-          <a href="https://github.com/gabrieletiboni/MaskPlanner" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
+          <a href="https://github.com/vandal-lab/MaskPlanner" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
           <a href="#datasetTab">Dataset</a>
           <!-- <a href="#contributionsSection">Contributions</a> -->
           <!-- <a href="#findingsSection">Highlights</a> -->
@@ -86,13 +86,13 @@
           Object-Centric Motion Generation (OCMG) plays a key role in a variety of industrial applications—such as robotic spray painting and welding—requiring efficient, scalable, and generalizable algorithms to plan multiple long-horizon trajectories over free-form 3D objects.
           However, existing solutions rely on specialized heuristics, expensive optimization routines, or restrictive geometry assumptions that limit their adaptability to real-world scenarios.
           In this work, we introduce a novel, fully data-driven framework that tackles OCMG directly from 3D point clouds, learning to generalize expert path patterns across free-form surfaces.
-          We propose MaskPlanner, a deep learning method that predicts local path segments for a given object while simultaneously inferring ``path masks" to group these segments into distinct trajectories. This design induces the network to capture both local geometric patterns and global task requirements in a single forward pass.
+          We propose MaskPlanner, a deep learning method that predicts local path segments for a given object while simultaneously inferring &ldquo;path masks&rdquo; to group these segments into distinct paths. This design induces the network to capture both local geometric patterns and global task requirements in a single forward pass.
           Extensive experimentation on a realistic robotic spray painting scenario shows that our approach attains near-complete coverage (above 99%) for unseen objects, while it remains task-agnostic and does not explicitly optimize for paint deposition.
-          Moreover, a real-world validation on a 6-DoF specialized painting robot demonstrates that the generated paths are directly executable and yield expert-level paint quality.
-          Our findings crucially highlight the potential of learning-based OCMG to reduce engineering overhead and seamlessly adapt to several industrial use cases.
+          Moreover, our real-world validation on a 6-DoF specialized painting robot demonstrates that the generated paths are directly executable and yield expert-level painting quality.
+          We additionally provide empirical evidence that our approach remains complementary to downstream trajectory optimization methods, and applicable to tasks beyond spray painting.
         </p>
         <br/>
-        <p style="font-style: italic;">Authored by <a href="https://gabrieletiboni.com/" target="_blank" class="easyLink">Gabriele Tiboni</a>, <a href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it" target="_blank" class="easyLink">Raffaello Camoriano</a>, and <a href="http://www.tatianatommasi.com/" target="_blank" class="easyLink">Tatiana Tammasi</a> from Politecnico di Torino. This work was supported by <a href="https://www.efortrobotics.com/" target="_blank" class="easyLink">EFORT</a>, providing the authors with domain knowledge, object meshes, trajectory data, and access to specialized painting robot hardware for our real-world experimental evaluation.
+        <p style="font-style: italic;">Authored by <a href="https://gabrieletiboni.com/" target="_blank" class="easyLink">Gabriele Tiboni</a>, <a href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it" target="_blank" class="easyLink">Raffaello Camoriano</a>, and <a href="http://www.tatianatommasi.com/" target="_blank" class="easyLink">Tatiana Tommasi</a> from Politecnico di Torino.
         </p>
       </div>
 
@@ -181,6 +181,19 @@
             Coming Soon
           </p>
       </div> -->
+
+      <div class="tab" id="acknowledgementsTab">
+        <h2>Acknowledgments</h2>
+        <p>
+          This study was carried out within the FAIR &mdash; Future Artificial Intelligence Research and received funding from the European Union Next-GenerationEU (PIANO NAZIONALE DI RIPRESA E RESILIENZA (PNRR) &ndash; MISSIONE 4 COMPONENTE 2, INVESTIMENTO 1.3 &ndash; D.D. 1555 11/10/2022, PE00000013). This manuscript reflects only the authors&rsquo; views and opinions; neither the European Union nor the European Commission can be considered responsible for them.
+        </p>
+        <p>
+          We also acknowledge the support of the European H2020 ELISE project (<a href="https://www.elise-ai.eu" target="_blank" class="easyLink">www.elise-ai.eu</a>) and the CINECA award under the ISCRA initiative (DRE-URL - HP10CF881L) for the availability of HPC resources and support.
+        </p>
+        <p>
+          This work was supported by the <a href="https://www.efortrobotics.com/" target="_blank" class="easyLink">EFORT</a> group, providing the authors with domain knowledge, original object meshes, trajectory data, and access to the proprietary spray painting simulator and hardware used during the experiments.
+        </p>
+      </div>
 
       <div class="tab">
           <h2>Citing</h2>
