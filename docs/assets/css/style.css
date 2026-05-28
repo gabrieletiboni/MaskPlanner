@@ -2,7 +2,8 @@
 /*	--main-color: rgb(57, 73, 171);*/
 
 /*	--main-color: rgb(13, 71, 161);*/
-	--main-color: rgb(66, 89, 124);
+/*	--main-color: rgb(66, 89, 124);*/
+	--main-color: rgb(22, 22, 22);
 }
 
 html, body {
@@ -128,8 +129,11 @@ header {
 
 /*		background: radial-gradient(circle, rgba(13, 71, 161, 0.9) 0%, rgba(13, 71, 161, 1) 51%, rgba(13, 71, 161, 1) 100%);*/
 
-		background: rgb(39,58,86);
-		background: radial-gradient(circle, rgba(39,58,86,1) 0%, rgba(66,89,124,1) 51%, rgba(66,89,124,1) 100%);
+/*		background: rgb(39,58,86);*/
+/*		background: radial-gradient(circle, rgba(39,58,86,1) 0%, rgba(66,89,124,1) 51%, rgba(66,89,124,1) 100%);*/
+
+		background: rgb(22,22,22);
+		background: radial-gradient(circle, rgba(8,8,8,1) 0%, rgba(22,22,22,1) 51%, rgba(22,22,22,1) 100%);
 
 		z-index: 10;
 
