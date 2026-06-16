@@ -52,9 +52,9 @@
           <a href="https://ieeexplore.ieee.org/abstract/document/11544114" target="_blank">IEEE T-RO Paper</a>
           <a href="https://arxiv.org/abs/2502.18745" target="_blank">Preprint</a>
           <a href="https://github.com/vandal-lab/MaskPlanner" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
+          <a href="#methodTab">Method</a>
+          <a href="#resultsTab">Results</a>
           <a href="#datasetTab">Dataset</a>
-          <!-- <a href="#contributionsSection">Contributions</a> -->
-          <!-- <a href="#findingsSection">Highlights</a> -->
           <a class="linkLike openCitePopup">Cite</a>
         </div>
       </div>
@@ -98,21 +98,137 @@
         </p>
       </div>
 
-      <div id="introImg">
-        <span>
-          <img style="max-width: 100%; max-height: 860px;" src="assets/img/qualitative_results.png">
-        </span>
-        <span>
-          Main qualitative results: the raw network predictions are shown for a representative test sample of each object Category. Points displayed with the same color belong to the same path. Point orientations are not visible.
-        </span>
+      <!-- 1. How MaskPlanner works -->
+      <div class="tab" id="methodTab">
+        <h2>How MaskPlanner works</h2>
+        <p>
+          MaskPlanner reframes motion generation as predicting, in a <strong>single forward pass</strong>, a set of local path <em>segments</em> together with a set of <em>path masks</em> that group those segments into complete paths. A PointNet++ encoder turns the raw 3D point cloud into global features, and two decoders jointly output the segments and masks. A lightweight postprocessing step then concatenates the segments belonging to each mask into smooth, executable long-horizon paths.
+          This design lets a single model handle a variable, a-priori-unknown number of variable-length, unordered paths&mdash;without any task-specific heuristics.
+        </p>
+        <div class="figureBlock wide">
+          <img src="assets/img/method_pipeline.png" alt="MaskPlanner training pipeline: point cloud encoded into global features, decoded into path segments and path masks">
+          <figcaption>Global point-cloud features are decoded into path segments and path masks in a single forward pass, supervised by our Point-to-Segment Chamfer Distance and a mask-prediction loss.</figcaption>
+        </div>
       </div>
 
-      <!-- <div class="tab" id="experimentsTab">
-        <h2>Experiments</h2>
-           <p class="comingSoon">
-          Coming Soon
+      <!-- 2. The Extended PaintNet dataset (slider over the 4 categories) -->
+      <div class="tab" id="extendedDatasetTab">
+        <h2>The Extended PaintNet dataset</h2>
+        <p>
+          We release the <strong>Extended PaintNet</strong> dataset&mdash;<strong>3,088</strong> object/paths pairs, more than 3&times; the size of the original PaintNet. It spans four categories of growing complexity, from simple synthetic cuboids to real industrial containers, each paired with expert spray-painting paths. Use the arrows to browse the categories.
         </p>
-      </div> -->
+        <div class="slider" data-slider>
+          <button class="slider-btn slider-prev" type="button" aria-label="Previous slide">&#8249;</button>
+          <div class="slider-track" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Extended PaintNet object categories">
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_cuboids.png" alt="Cuboid object with spray-painting paths" loading="lazy">
+              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with a fixed set of raster-like paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_windows.png" alt="Window object with spray-painting paths" loading="lazy">
+              <figcaption><strong>Windows</strong> &mdash; 1,000 objects with a varying number of shorter paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_shelves.png" alt="Shelf object with spray-painting paths" loading="lazy">
+              <figcaption><strong>Shelves</strong> &mdash; 1,000 objects mixing convex and concave surfaces.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_containers.png" alt="Industrial container with spray-painting paths" loading="lazy">
+              <figcaption><strong>Containers</strong> &mdash; 88 real industrial objects with high shape diversity.</figcaption>
+            </figure>
+          </div>
+          <button class="slider-btn slider-next" type="button" aria-label="Next slide">&#8250;</button>
+          <div class="slider-dots" aria-hidden="true"></div>
+        </div>
+        <p>The full dataset is available for download in the <a href="#datasetTab" class="easyLink">Dataset</a> section below.</p>
+      </div>
+
+      <!-- 3. From segments to executable paths -->
+      <div class="tab" id="postprocessTab">
+        <h2>From segments to executable paths</h2>
+        <p>
+          At inference, the raw predicted segments are grouped by their path mask and turned into a single executable trajectory: redundant segments are filtered out, the remaining ones are optimally ordered via Edmonds' algorithm and a longest-path search, and the result is interpolated, upsampled and smoothed into a dense sequence of 6-DoF end-effector poses.
+        </p>
+        <div class="figureBlock wide">
+          <img src="assets/img/postprocessing_steps.png" alt="Postprocessing steps: raw segment predictions, filtering, ordering, smoothing">
+          <figcaption>Postprocessing concatenates the segments of a single path mask&mdash;from raw predictions to a smooth, executable path.</figcaption>
+        </div>
+      </div>
+
+      <!-- 4. Results: comparison to baselines (supersedes the old #introImg) -->
+      <div class="tab" id="resultsTab">
+        <h2>Results: comparison to baselines</h2>
+        <p>
+          Across all four categories, MaskPlanner's predictions stay closest to the expert ground truth. Compared to path-wise, autoregressive and point-wise baselines&mdash;and to an ablation without our Asymmetric Point-to-Segment (AP2S) curriculum&mdash;it best captures both fine local path structure and the correct global number of paths.
+        </p>
+        <div class="figureBlock wide">
+          <img src="assets/img/qualitative_results.png" alt="Qualitative comparison of MaskPlanner against baselines across object categories">
+          <figcaption>Main qualitative results: the raw network predictions are shown for a representative test sample of each object Category. Points displayed with the same color belong to the same path. Point orientations are not visible.</figcaption>
+        </div>
+      </div>
+
+      <!-- 5. Paint coverage in simulation -->
+      <div class="tab" id="coverageTab">
+        <h2>Paint coverage in simulation</h2>
+        <div class="statHighlight">
+          <span class="statNumber">&gt;99%</span>
+          <span class="statLabel">paint coverage on unseen Cuboids, Windows and Shelves&mdash;despite never optimizing for paint deposition.</span>
+        </div>
+        <p>
+          When the predicted paths are executed in a spray-painting simulator, MaskPlanner achieves the highest paint coverage and the lowest variance across every category, even though coverage is never part of its training objective.
+        </p>
+        <div class="figureBlock wide">
+          <img src="assets/img/paint_coverage.png" alt="Simulated paint coverage comparison on an industrial container">
+          <figcaption>Simulated paint coverage on an unseen container: yellow faces are covered. MaskPlanner matches the ground-truth coverage far more closely than the baselines.</figcaption>
+        </div>
+      </div>
+
+      <!-- 6. Real-world validation (slider over the pipeline stages) -->
+      <div class="tab" id="realworldTab">
+        <h2>Real-world validation</h2>
+        <p>
+          We deploy MaskPlanner on a real <strong>6-DoF Efort GR-680</strong> spray-painting robot. Given only the object point cloud, the full pipeline predicts all paths in <strong>~100&nbsp;ms</strong> (plus ~100&nbsp;ms of postprocessing)&mdash;for example, 6 paths spanning 83&nbsp;m for a cuboid and 14 paths spanning 17&nbsp;m for a window. The generated trajectories are kinematically and dynamically feasible, and the final powder-coating result is indistinguishable from expert ground-truth paths.
+        </p>
+        <div class="slider" data-slider>
+          <button class="slider-btn slider-prev" type="button" aria-label="Previous slide">&#8249;</button>
+          <div class="slider-track" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Real-world validation pipeline">
+            <figure class="slider-slide">
+              <img src="assets/img/realworld_pc.png" alt="Input point cloud of the real object" loading="lazy">
+              <figcaption><strong>Input point cloud</strong> &mdash; the only input to the network.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/realworld_predictions.png" alt="Raw network predictions on the real object" loading="lazy">
+              <figcaption><strong>Network predictions</strong> &mdash; raw segments grouped into paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/realworld_predictions_postprocessed.png" alt="Postprocessed executable paths" loading="lazy">
+              <figcaption><strong>Postprocessed paths</strong> &mdash; concatenated, executable trajectories.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/realworld_final.png" alt="Real object painted by the robot" loading="lazy">
+              <figcaption><strong>Real-world result</strong> &mdash; painted on the production-line robot.</figcaption>
+            </figure>
+          </div>
+          <button class="slider-btn slider-next" type="button" aria-label="Next slide">&#8250;</button>
+          <div class="slider-dots" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- 7. Beyond spray painting & trajectory optimization -->
+      <div class="tab" id="beyondTab">
+        <h2>Beyond spray painting &amp; trajectory optimization</h2>
+        <p>
+          MaskPlanner makes no spray-painting-specific assumptions, so the same approach transfers to other object-centric motion tasks. We demonstrate it on two synthetic benchmarks&mdash;<em>Ring-on-Bottleneck</em> and <em>Surface-Tracking</em>&mdash;and show that its high-quality paths are a strong initialization for a downstream trajectory optimizer, yielding uniform paint thickness even on highly-curved surfaces.
+        </p>
+        <div class="figureBlock wide">
+          <img src="assets/img/beyond_applications.png" alt="Ring-on-Bottleneck and Surface-Tracking tasks beyond spray painting">
+          <figcaption>Generalization beyond spray painting: the Ring-on-Bottleneck (left) and Surface-Tracking (right) tasks.</figcaption>
+        </div>
+        <div class="figureBlock">
+          <img src="assets/img/traj_optimization.png" alt="Paint thickness before and after downstream trajectory optimization">
+          <figcaption>Used as initialization for a downstream optimizer, MaskPlanner's paths converge to uniform paint thickness (before &rarr; after).</figcaption>
+        </div>
+      </div>
 
       <div class="tab" id="datasetTab">
         <h2>Dataset</h2>
@@ -234,6 +350,7 @@
 
       function init() {
         loadAnimatedBackground();
+        initSliders();
 
         if (!isMobile && !isTablet) {
           $('body').on('scroll', function() {
@@ -280,7 +397,81 @@
       });
 
       function loadAnimatedBackground() {
-        $("#animContainer").load("assets/include/animatedBackground.html"); 
+        $("#animContainer").load("assets/include/animatedBackground.html");
+      }
+
+      // Lightweight, dependency-free horizontal sliders (CSS scroll-snap + buttons).
+      // Idempotent and supports multiple independent sliders on the page.
+      function initSliders() {
+        var sliders = document.querySelectorAll('[data-slider]');
+        for (var s = 0; s < sliders.length; s++) {
+          (function(slider) {
+            if (slider.dataset.sliderReady) return;   // guard against double-init
+            slider.dataset.sliderReady = "1";
+
+            var track = slider.querySelector('.slider-track');
+            var slides = track.querySelectorAll('.slider-slide');
+            var dotsWrap = slider.querySelector('.slider-dots');
+            var prev = slider.querySelector('.slider-prev');
+            var next = slider.querySelector('.slider-next');
+            if (!track || !slides.length) return;
+
+            function step() {
+              return slides[0].getBoundingClientRect().width || track.clientWidth;
+            }
+            function go(dir) {
+              track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+            }
+            function currentIndex() {
+              return Math.round(track.scrollLeft / step());
+            }
+
+            // build navigation dots
+            if (dotsWrap) {
+              for (var i = 0; i < slides.length; i++) {
+                (function(idx) {
+                  var dot = document.createElement('button');
+                  dot.type = 'button';
+                  dot.className = 'slider-dot';
+                  dot.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+                  dot.addEventListener('click', function() {
+                    track.scrollTo({ left: idx * step(), behavior: 'smooth' });
+                  });
+                  dotsWrap.appendChild(dot);
+                })(i);
+              }
+            }
+            var dots = dotsWrap ? dotsWrap.querySelectorAll('.slider-dot') : [];
+
+            function refresh() {
+              var idx = currentIndex();
+              for (var d = 0; d < dots.length; d++) {
+                if (d === idx) dots[d].classList.add('active');
+                else dots[d].classList.remove('active');
+              }
+              if (prev) prev.disabled = idx <= 0;
+              if (next) next.disabled = idx >= slides.length - 1;
+            }
+
+            if (prev) prev.addEventListener('click', function() { go(-1); });
+            if (next) next.addEventListener('click', function() { go(1); });
+
+            // arrow keys only when the track itself is focused (never hijacks page scroll)
+            track.addEventListener('keydown', function(e) {
+              if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+              else if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+            });
+
+            // scoped to the track element, so it does not touch the header scroll animation
+            var raf;
+            track.addEventListener('scroll', function() {
+              if (raf) cancelAnimationFrame(raf);
+              raf = requestAnimationFrame(refresh);
+            });
+            window.addEventListener('resize', refresh);
+            refresh();
+          })(sliders[s]);
+        }
       }
 
       init();
