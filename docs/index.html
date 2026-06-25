@@ -266,28 +266,21 @@
         <p>
           We deploy MaskPlanner on a real <strong>6-DoF Efort GR-680</strong> spray-painting robot. Given only the object point cloud, the full pipeline predicts all paths in <strong>~100&nbsp;ms</strong> (plus ~100&nbsp;ms of postprocessing). The generated trajectories are kinematically and dynamically feasible, and the final powder-coating result is indistinguishable from expert ground-truth paths.
         </p>
-        <div class="slider" data-slider>
-          <button class="slider-btn slider-prev" type="button" aria-label="Previous slide">&#8249;</button>
-          <div class="slider-track" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Real-world validation pipeline">
-            <figure class="slider-slide">
-              <img src="assets/img/realworld_pc.png" alt="Input point cloud of the real object" loading="lazy">
-              <figcaption><strong>Input point cloud</strong> &mdash; the only input to the network.</figcaption>
-            </figure>
-            <figure class="slider-slide">
-              <img src="assets/img/realworld_predictions.png" alt="Raw network predictions on the real object" loading="lazy">
-              <figcaption><strong>Network predictions</strong> &mdash; raw segments grouped into paths.</figcaption>
-            </figure>
-            <figure class="slider-slide">
-              <img src="assets/img/realworld_predictions_postprocessed.png" alt="Postprocessed executable paths" loading="lazy">
-              <figcaption><strong>Postprocessed paths</strong> &mdash; concatenated, executable trajectories.</figcaption>
-            </figure>
-            <figure class="slider-slide">
-              <img src="assets/img/realworld_final.png" alt="Real object painted by the robot" loading="lazy">
-              <figcaption><strong>Real-world result</strong> &mdash; painted on the production-line robot.</figcaption>
-            </figure>
-          </div>
-          <button class="slider-btn slider-next" type="button" aria-label="Next slide">&#8250;</button>
-          <div class="slider-dots" aria-hidden="true"></div>
+        <div class="videoRow">
+          <figure>
+            <video muted loop autoplay playsinline controls preload="metadata">
+              <source src="assets/video/realworld_cuboid_execution.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption><strong>Cuboid</strong> &mdash; MaskPlanner paths executed on the real robot.</figcaption>
+          </figure>
+          <figure>
+            <video muted loop autoplay playsinline controls preload="metadata">
+              <source src="assets/video/realworld_window_execution.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption><strong>Window</strong> &mdash; MaskPlanner paths executed on the real robot.</figcaption>
+          </figure>
         </div>
       </div>
 

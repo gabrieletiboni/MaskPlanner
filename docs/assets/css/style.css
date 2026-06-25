@@ -519,6 +519,41 @@ header {
 	}
 
 
+/* ===== Side-by-side video row ===== */
+.videoRow {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 20px;
+	margin: 30px auto 10px auto;
+}
+	.videoRow > figure {
+		flex: 1 1 0;
+		min-width: 0;
+		max-width: 480px;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.videoRow video {
+		width: 100%;
+		height: auto;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		border-radius: 8px;
+		background-color: #000;
+	}
+	.videoRow figcaption {
+		margin-top: 12px;
+		font-style: italic;
+		font-size: .8rem;
+		text-align: center;
+		color: rgba(0,0,0, 0.7);
+	}
+
+
 /* ===== Stat highlight (e.g. >99% paint coverage) ===== */
 .statHighlight {
 	display: flex;
@@ -736,6 +771,11 @@ footer {
 		.statHighlight > .statLabel {
 			text-align: center;
 		}
+
+	.videoRow > figure {
+		flex: 0 0 100%;
+		max-width: 420px;
+	}
 
 
 }
