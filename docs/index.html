@@ -291,22 +291,6 @@
         </div>
       </div>
 
-      <!-- 7. Beyond spray painting & trajectory optimization -->
-      <div class="tab" id="beyondTab">
-        <h2>Beyond spray painting &amp; trajectory optimization</h2>
-        <p>
-          MaskPlanner makes no spray-painting-specific assumptions, so the same approach transfers to other object-centric motion tasks. We demonstrate it on two synthetic benchmarks&mdash;<em>Ring-on-Bottleneck</em> and <em>Surface-Tracking</em>&mdash;and show that its high-quality paths are a strong initialization for a downstream trajectory optimizer, yielding uniform paint thickness even on highly-curved surfaces.
-        </p>
-        <div class="figureBlock wide">
-          <img src="assets/img/beyond_applications.png" alt="Ring-on-Bottleneck and Surface-Tracking tasks beyond spray painting">
-          <figcaption>Generalization beyond spray painting: the Ring-on-Bottleneck (left) and Surface-Tracking (right) tasks.</figcaption>
-        </div>
-        <div class="figureBlock">
-          <img src="assets/img/traj_optimization.png" alt="Paint thickness before and after downstream trajectory optimization">
-          <figcaption>Used as initialization for a downstream optimizer, MaskPlanner's paths converge to uniform paint thickness (before &rarr; after).</figcaption>
-        </div>
-      </div>
-
       <div class="tab" id="datasetTab">
         <h2>Dataset</h2>
            <!-- <p class="comingSoon">
