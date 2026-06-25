@@ -522,9 +522,9 @@ header {
 /* ===== Stat highlight (e.g. >99% paint coverage) ===== */
 .statHighlight {
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	justify-content: center;
-	gap: 14px;
+	gap: 18px;
 	margin: 24px auto;
 	text-align: center;
 }
@@ -626,6 +626,7 @@ header {
 
 	.slider-dots {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
 		gap: 8px;
 		margin-top: 14px;

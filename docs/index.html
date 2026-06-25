@@ -52,8 +52,6 @@
           <a href="https://ieeexplore.ieee.org/abstract/document/11544114" target="_blank">IEEE T-RO Paper</a>
           <a href="https://arxiv.org/abs/2502.18745" target="_blank">Preprint</a>
           <a href="https://github.com/vandal-lab/MaskPlanner" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
-          <a href="#methodTab">Method</a>
-          <a href="#resultsTab">Results</a>
           <a href="#datasetTab">Dataset</a>
           <a class="linkLike openCitePopup">Cite</a>
         </div>
@@ -115,25 +113,105 @@
       <div class="tab" id="extendedDatasetTab">
         <h2>The Extended PaintNet dataset</h2>
         <p>
-          We release the <strong>Extended PaintNet</strong> dataset&mdash;<strong>3,088</strong> object/paths pairs, more than 3&times; the size of the original PaintNet. It spans four categories of growing complexity, from simple synthetic cuboids to real industrial containers, each paired with expert spray-painting paths. Use the arrows to browse the categories.
+          We release the <strong>Extended PaintNet</strong> dataset&mdash;<strong>3,088</strong> object/paths pairs, more than 3&times; the size of the original PaintNet. It spans four categories of growing complexity: <strong>Cuboids</strong> (simple raster patterns), <strong>Windows</strong> (a varying number of shorter paths), <strong>Shelves</strong> (convex and concave surfaces), and 88 real industrial <strong>Containers</strong> with high shape diversity. Use the arrows or dots to browse representative samples.
         </p>
         <div class="slider" data-slider>
           <button class="slider-btn slider-prev" type="button" aria-label="Previous slide">&#8249;</button>
-          <div class="slider-track" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Extended PaintNet object categories">
+          <div class="slider-track" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Extended PaintNet object samples">
             <figure class="slider-slide">
-              <img src="assets/img/dataset_cuboids.png" alt="Cuboid object with spray-painting paths" loading="lazy">
-              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with a fixed set of raster-like paths.</figcaption>
+              <img src="assets/img/dataset_cuboids_1.png" alt="Cuboid sample 1 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with raster-like paths.</figcaption>
             </figure>
             <figure class="slider-slide">
-              <img src="assets/img/dataset_windows.png" alt="Window object with spray-painting paths" loading="lazy">
+              <img src="assets/img/dataset_cuboids_2.png" alt="Cuboid sample 2 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with raster-like paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_cuboids_3.png" alt="Cuboid sample 3 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with raster-like paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_cuboids_4.png" alt="Cuboid sample 4 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with raster-like paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_cuboids_5.png" alt="Cuboid sample 5 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with raster-like paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_cuboids_6.png" alt="Cuboid sample 6 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Cuboids</strong> &mdash; 1,000 simple objects with raster-like paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_windows_1.png" alt="Window sample 1 with spray-painting paths" loading="lazy">
               <figcaption><strong>Windows</strong> &mdash; 1,000 objects with a varying number of shorter paths.</figcaption>
             </figure>
             <figure class="slider-slide">
-              <img src="assets/img/dataset_shelves.png" alt="Shelf object with spray-painting paths" loading="lazy">
+              <img src="assets/img/dataset_windows_2.png" alt="Window sample 2 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Windows</strong> &mdash; 1,000 objects with a varying number of shorter paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_windows_3.png" alt="Window sample 3 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Windows</strong> &mdash; 1,000 objects with a varying number of shorter paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_windows_4.png" alt="Window sample 4 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Windows</strong> &mdash; 1,000 objects with a varying number of shorter paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_windows_5.png" alt="Window sample 5 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Windows</strong> &mdash; 1,000 objects with a varying number of shorter paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_windows_6.png" alt="Window sample 6 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Windows</strong> &mdash; 1,000 objects with a varying number of shorter paths.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_shelves_1.png" alt="Shelf sample 1 with spray-painting paths" loading="lazy">
               <figcaption><strong>Shelves</strong> &mdash; 1,000 objects mixing convex and concave surfaces.</figcaption>
             </figure>
             <figure class="slider-slide">
-              <img src="assets/img/dataset_containers.png" alt="Industrial container with spray-painting paths" loading="lazy">
+              <img src="assets/img/dataset_shelves_2.png" alt="Shelf sample 2 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Shelves</strong> &mdash; 1,000 objects mixing convex and concave surfaces.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_shelves_3.png" alt="Shelf sample 3 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Shelves</strong> &mdash; 1,000 objects mixing convex and concave surfaces.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_shelves_4.png" alt="Shelf sample 4 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Shelves</strong> &mdash; 1,000 objects mixing convex and concave surfaces.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_shelves_5.png" alt="Shelf sample 5 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Shelves</strong> &mdash; 1,000 objects mixing convex and concave surfaces.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_shelves_6.png" alt="Shelf sample 6 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Shelves</strong> &mdash; 1,000 objects mixing convex and concave surfaces.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_containers_1.png" alt="Industrial container sample 1 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Containers</strong> &mdash; 88 real industrial objects with high shape diversity.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_containers_2.png" alt="Industrial container sample 2 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Containers</strong> &mdash; 88 real industrial objects with high shape diversity.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_containers_3.png" alt="Industrial container sample 3 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Containers</strong> &mdash; 88 real industrial objects with high shape diversity.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_containers_4.png" alt="Industrial container sample 4 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Containers</strong> &mdash; 88 real industrial objects with high shape diversity.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_containers_5.png" alt="Industrial container sample 5 with spray-painting paths" loading="lazy">
+              <figcaption><strong>Containers</strong> &mdash; 88 real industrial objects with high shape diversity.</figcaption>
+            </figure>
+            <figure class="slider-slide">
+              <img src="assets/img/dataset_containers_6.png" alt="Industrial container sample 6 with spray-painting paths" loading="lazy">
               <figcaption><strong>Containers</strong> &mdash; 88 real industrial objects with high shape diversity.</figcaption>
             </figure>
           </div>
@@ -151,7 +229,6 @@
         </p>
         <div class="figureBlock wide">
           <img src="assets/img/postprocessing_steps.png" alt="Postprocessing steps: raw segment predictions, filtering, ordering, smoothing">
-          <figcaption>Postprocessing concatenates the segments of a single path mask&mdash;from raw predictions to a smooth, executable path.</figcaption>
         </div>
       </div>
 
@@ -172,7 +249,7 @@
         <h2>Paint coverage in simulation</h2>
         <div class="statHighlight">
           <span class="statNumber">&gt;99%</span>
-          <span class="statLabel">paint coverage on unseen Cuboids, Windows and Shelves&mdash;despite never optimizing for paint deposition.</span>
+          <span class="statLabel">paint coverage on unseen Cuboids, Windows and Shelves; despite never optimizing for paint deposition.</span>
         </div>
         <p>
           When the predicted paths are executed in a spray-painting simulator, MaskPlanner achieves the highest paint coverage and the lowest variance across every category, even though coverage is never part of its training objective.
